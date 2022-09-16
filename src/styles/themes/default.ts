@@ -15,7 +15,7 @@ const defaultTheme = {
 
     colors: {
         primaryNormal: '#82269E',
-        primaryLight: '##9C4FB4',
+        primaryLight: '#9C4FB4',
         primaryDark: '#701F88',
 
         secondaryNormal: '#A950C4',

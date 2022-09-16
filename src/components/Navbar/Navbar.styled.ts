@@ -9,13 +9,14 @@ export const HeaderWrapper = styled.header`
     z-index: 999;
 
     width: 100%;
+    height: 4.5rem;
     background-color: transparent;
     box-shadow: none;
     transition: .5s ease;
 
     &.header--active {
-        background-color: ${props => props.theme.colors.whiteNormal};
-        box-shadow: ${props => props.theme.shadows.purple1};
+        background-color: ${props => props.theme.colors.whiteDark};
+        box-shadow: ${props => props.theme.shadows.purple3};
     }
 `;
 

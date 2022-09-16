@@ -7,6 +7,7 @@ import { DropdownItemProps, DropdownProps } from "./Dropdown.types";
 | DROPDOWN MENU...
 |-------------------------------------------------------------------------- */}
 export const DropdownMenu = ({ children }: DropdownProps) => {
+    // Função que fecha do dropdown ao tirar o mouse...
     const handleDropdownClosed = (event: any) => {
         let item = event.currentTarget;
         item.classList.remove('dropdown-menu--active');

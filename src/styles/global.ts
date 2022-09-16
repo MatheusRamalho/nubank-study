@@ -20,8 +20,8 @@ export default createGlobalStyle`
 
     body {
         width: 100%;
-        height: 100vh;
-        background-color: ${props => props.theme.colors.whiteDark};
+        height: 2000px;
+        background-color: ${props => props.theme.colors.whiteLight};
 
         font-family: ${props => props.theme.fonts.text};
         font-weight: ${props => props.theme.fonts.regular};
@@ -30,14 +30,14 @@ export default createGlobalStyle`
         scroll-behavior: smooth;
 
         &::-webkit-scrollbar {
-            width: ${props => props.theme.sizes.size8};
-            padding-right: ${props => props.theme.sizes.size2};
-            background: transparent;
+            width: ${props => props.theme.sizes.size12};
+            padding-right: ${props => props.theme.sizes.size4};
+            background: ${props => props.theme.colors.whiteLight};
         }
 
         &::-webkit-scrollbar-thumb {
-            border-radius: ${props => props.theme.sizes.size8};
-            background: ${props => props.theme.colors.whiteDark};
+            border-radius: ${props => props.theme.sizes.size2};
+            background: ${props => props.theme.colors.secondaryLight};
         }
     }
 

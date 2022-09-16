@@ -15,16 +15,17 @@ import { useState } from "react";
 | NAVBAR HEADER...
 |-------------------------------------------------------------------------- */}
 export const Navbar = ({ children, isActive = false }: NavbarProps) => {
-    // const handleScrollHeader = () => {
-    //     const header = document.querySelector('#header');
+    // Função que faz o efeito do scroll no header...
+    const handleScrollHeader = () => {
+        const header = document.querySelector('#header');
 
-    //     if (header) {
-    //         (this.scrollY >= 50)
-    //             ? header.classList.add('header-active')
-    //             : header.classList.remove('header-active');
-    //     }
-    // }
-    // window.addEventListener('scroll', handleScrollHeader);
+        if (header) {
+            (window.scrollY >= 50)
+                ? header.classList.add('header--active')
+                : header.classList.remove('header--active');
+        }
+    }
+    window.addEventListener('scroll', handleScrollHeader);
 
     return (
         <HeaderWrapper
@@ -112,7 +113,8 @@ export const NavbarMobileMenu = ({ children }: NavbarProps) => {
 | NAVBAR ITEM...
 |-------------------------------------------------------------------------- */}
 export const NavItem = ({ name, children }: NavItemProps) => {
-    const handleDropdownToggle = (event: any) => { // Função que abre/fecha o dropdown...
+    // Função que abre/fecha o dropdown...
+    const handleDropdownToggle = (event: any) => {
         event.preventDefault();
 
         let link = event.currentTarget;
@@ -123,8 +125,8 @@ export const NavItem = ({ name, children }: NavItemProps) => {
         dropdowns.forEach(element => {
             (dropdown) &&
                 (element === dropdown)
-                    ? dropdown.classList.toggle('dropdown-menu--active')
-                    : element.classList.remove('dropdown-menu--active');
+                ? dropdown.classList.toggle('dropdown-menu--active')
+                : element.classList.remove('dropdown-menu--active');
         });
     }
 
