@@ -58,6 +58,10 @@ export const NavbarDesktopWrapper = styled.nav`
 
         &--2 {
             justify-content: flex-end;
+
+            a:last-child:not(.button) {
+                margin-left: ${props => props.theme.sizes.size16};
+            }
         }
     }
 `;
