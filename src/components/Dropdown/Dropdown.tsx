@@ -6,10 +6,17 @@ import { DropdownItemProps, DropdownProps } from "./Dropdown.types";
 {/* --------------------------------------------------------------------------
 | DROPDOWN MENU...
 |-------------------------------------------------------------------------- */}
-export const DropdownMenu = ({ children, isActive = false }: DropdownProps) => {
+export const DropdownMenu = ({ children }: DropdownProps) => {
+    const handleDropdownClosed = (event: any) => {
+        let item = event.currentTarget;
+        item.classList.remove('dropdown-menu--active');
+    }
+
     return (
-        // className={`dropdown-menu ${isActive ? 'dropdown-menu--active' : ''}`}
-        <DropdownMenuWrapper className="dropdown-menu">
+        <DropdownMenuWrapper
+            className="dropdown-menu"
+            onMouseLeave={(event) => handleDropdownClosed(event)}
+        >
             {children}
         </DropdownMenuWrapper>
     );

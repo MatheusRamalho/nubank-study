@@ -112,15 +112,20 @@ export const NavbarMobileMenu = ({ children }: NavbarProps) => {
 | NAVBAR ITEM...
 |-------------------------------------------------------------------------- */}
 export const NavItem = ({ name, children }: NavItemProps) => {
-    const handleDropdownToggle = (event: any) => {  // Função que abre/fecha o dropdown...
+    const handleDropdownToggle = (event: any) => { // Função que abre/fecha o dropdown...
+        event.preventDefault();
+
         let link = event.currentTarget;
         let item = link ? link.closest('li.nav-item') : null;
         let dropdown = item ? item.querySelector('ul.dropdown-menu') : null;
+        let dropdowns = document.querySelectorAll('ul.dropdown-menu');
 
-        (dropdown) &&
-            (dropdown.classList.contains('dropdown-menu--active'))
-                ? dropdown.classList.remove('dropdown-menu--active')
-                : dropdown.classList.add('dropdown-menu--active');
+        dropdowns.forEach(element => {
+            (dropdown) &&
+                (element === dropdown)
+                    ? dropdown.classList.toggle('dropdown-menu--active')
+                    : element.classList.remove('dropdown-menu--active');
+        });
     }
 
     return (
