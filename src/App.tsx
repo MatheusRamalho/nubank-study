@@ -19,12 +19,7 @@ import { Footer } from './components/Footer';
 
 export const App = () => {
 	const [theme] = usePersistedState<DefaultTheme>('theme', combineTheme(lightTheme));
-	// const [menuMobile, setMenuMobile] = useState(false);
-
-	// const handleToggleMenu = () => {
-    //     setMenuMobile(true);
-    // }
-
+	
 	return (
 		<ThemeProvider theme={theme}>
 			<BrowserRouter>

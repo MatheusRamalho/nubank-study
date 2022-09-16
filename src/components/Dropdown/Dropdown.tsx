@@ -8,9 +8,8 @@ import { DropdownItemProps, DropdownProps } from "./Dropdown.types";
 |-------------------------------------------------------------------------- */}
 export const DropdownMenu = ({ children, isActive = false }: DropdownProps) => {
     return (
-        <DropdownMenuWrapper
-            className={`dropdown-menu ${isActive ? 'dropdown-menu--active' : ''}`}
-        >
+        // className={`dropdown-menu ${isActive ? 'dropdown-menu--active' : ''}`}
+        <DropdownMenuWrapper className="dropdown-menu">
             {children}
         </DropdownMenuWrapper>
     );

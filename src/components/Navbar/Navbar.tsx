@@ -66,23 +66,23 @@ export const NavbarDesktop = ({ children }: NavbarProps) => {
 export const NavbarMobile = () => {
     const [isActive, setIsActive] = useState(false);
 
-    // Função que abre ou fecha o menu mobile...
-    const handleToggleMenu = () => {
+    // Função que abre/fecha o menu mobile...
+    const handleMenuToggle = () => {
         let menu = document.querySelector('.navbar-mobile-menu');
 
         if (isActive === true) {
-           setIsActive(false);
-           (menu) && menu.classList.remove('navbar-mobile-menu--active');
+            setIsActive(false);
+            (menu) && menu.classList.remove('navbar-mobile-menu--active');
         } else {
-           setIsActive(true);
-           (menu) && menu.classList.add('navbar-mobile-menu--active');
+            setIsActive(true);
+            (menu) && menu.classList.add('navbar-mobile-menu--active');
         }
     }
 
     return (
         <NavbarMobileWrapper className="navbar-mobile">
             <div
-                onClick={handleToggleMenu}
+                onClick={handleMenuToggle}
                 className={`nav-hamburguer ${isActive ? 'nav-hamburguer--active' : ''}`}
             ></div>
 
@@ -112,9 +112,25 @@ export const NavbarMobileMenu = ({ children }: NavbarProps) => {
 | NAVBAR ITEM...
 |-------------------------------------------------------------------------- */}
 export const NavItem = ({ name, children }: NavItemProps) => {
+    const handleDropdownToggle = (event: any) => {  // Função que abre/fecha o dropdown...
+        let link = event.currentTarget;
+        let item = link ? link.closest('li.nav-item') : null;
+        let dropdown = item ? item.querySelector('ul.dropdown-menu') : null;
+
+        (dropdown) &&
+            (dropdown.classList.contains('dropdown-menu--active'))
+                ? dropdown.classList.remove('dropdown-menu--active')
+                : dropdown.classList.add('dropdown-menu--active');
+    }
+
     return (
         <NavItemWrapper className="nav-item">
-            <a className="nav-item-link" href="#"> {name} </a>
+            <a
+                className="nav-item-link" href="#"
+                onClick={(event) => handleDropdownToggle(event)}
+            >
+                {name}
+            </a>
 
             {children}
         </NavItemWrapper>
