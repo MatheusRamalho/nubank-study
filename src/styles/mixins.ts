@@ -116,39 +116,40 @@ export const handleTypefaceText = ({ size = 'text-2', device = 'desktop' }: type
 `;
 
 // Mixin de responsividade...
-export const handleResponsive = ({ device }: responsiveProps) => css`
+export const handleResponsive = ({ device, ...props }: responsiveProps) => css`
     ${ (device == 'xl')
         ? css` // For resolutions upper 1440px
             @media screen and (min-width: ${props => props.theme.containers.extraLarge}) {
                 @content;
-                background: green;
+                /* ${css` @content `}; */
+                /* background: green; */
             }
         `
         : (device == 'l')
             ? css` // For resolutions between 1140px and 1440px
                 @media screen and (max-width: ${props => props.theme.containers.extraLarge}) and (min-width: ${props => props.theme.containers.large}) {
                     @content;
-                    background: yellow;
+                    /* background: yellow; */
                 }
             `
             : (device == 'm')
                 ? css` // For resolutions between 960px and 1140px
                     @media screen and (max-width: ${props => props.theme.containers.large}) and (min-width: ${props => props.theme.containers.small}) {
                         @content;
-                        background: blue;
+                        /* background: blue; */
                     }
                 `
                 : (device == 's')
                     ? css` // For resolutions less than 960px
                         @media screen and (max-width: ${props => props.theme.containers.medium}) {
                             @content;
-                            background: red;
+                            /* background: red; */
                         }
                     `
                     : (device == 'xs') && css` // For resolutions less than 540px
                         @media screen and (max-width: ${props => props.theme.containers.small}) {
                             @content;
-                            background: pink;
+                            /* background: pink; */
                         }
                     `
     }

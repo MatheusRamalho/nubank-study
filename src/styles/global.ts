@@ -21,7 +21,7 @@ export default createGlobalStyle`
     body {
         width: 100%;
         height: 100vh;
-        background-color: ${props => props.theme.colors.whiteLight};
+        background-color: ${props => props.theme.colors.whiteDark};
 
         font-family: ${props => props.theme.fonts.text};
         font-weight: ${props => props.theme.fonts.regular};
@@ -42,22 +42,40 @@ export default createGlobalStyle`
     }
 
     /* --------------------------------------------------------------------------
-    | ELEMENTS...
+    | LISTS...
     |-------------------------------------------------------------------------- */
     ul, ol {
         list-style-type: none;
     }
+
+    /* --------------------------------------------------------------------------
+    | FILES...
+    |-------------------------------------------------------------------------- */
 
     img, picture, video, canvas, svg {
         display: block;
         width: 100%;
     }
 
+    /* --------------------------------------------------------------------------
+    | LINKS...
+    |-------------------------------------------------------------------------- */
     a {
+        ${handleTypefaceText({ size: 'text-2', device: 'desktop' })};
+
+        color: ${props => props.theme.colors.blackNormal};
         text-decoration: none;
         outline: none;
+        transition: .5s ease;
+
+        &:not(disabled):hover {
+            opacity: 0.9;
+        }
     }
 
+    /* --------------------------------------------------------------------------
+    | TYPOGRAPHYS...
+    |-------------------------------------------------------------------------- */
     h1, h2, h3, h4, h5, h6,
     p, span, small, address {
         overflow-wrap: break-word; // Para que o texto quebre...
@@ -67,23 +85,6 @@ export default createGlobalStyle`
     h1, h2, h3, h4, h5, h6 {
         color: ${props => props.theme.colors.blackNormal};
     }
-
-    .container {
-        max-width: ${props => props.theme.containers.extraLarge};
-        margin: 0 auto;
-        padding: 0 0.938rem;
-
-        height: 500px;
-        ${handleResponsive({ device: 'xl' })};
-        ${handleResponsive({ device: 'l' })};
-        ${handleResponsive({ device: 'm' })};
-        ${handleResponsive({ device: 's' })};
-        ${handleResponsive({ device: 'xs' })};
-    }
-
-    /* --------------------------------------------------------------------------
-    | TYPOGRAPHYS...
-    |-------------------------------------------------------------------------- */
 
     h1 {
         ${handleTypefaceTitle({ size: 'h1', device: 'desktop' })};
@@ -139,7 +140,32 @@ export default createGlobalStyle`
         }
     }
 
-    .text-1 {}
-    .text-2 {}
-    .text-3 {}
+    /* --------------------------------------------------------------------------
+    | CONTAINERS...
+    |-------------------------------------------------------------------------- */
+    .container {
+        max-width: ${props => props.theme.containers.extraLarge};
+        margin: 0 auto;
+        padding: 0 0.938rem;
+
+        /* ${handleResponsive({ device: 'xl' })};
+        ${handleResponsive({ device: 'l' })};
+        ${handleResponsive({ device: 'm' })};
+        ${handleResponsive({ device: 's' })};
+        ${handleResponsive({ device: 'xs' })}; */
+    }
+
+    .flex {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+
+        &--center {
+            justify-content: center;
+        }
+
+        &--end {
+            justify-content: flex-end;
+        }
+    }
 `;

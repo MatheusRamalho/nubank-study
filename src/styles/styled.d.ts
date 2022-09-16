@@ -41,6 +41,14 @@ declare module 'styled-components' {
             gray600: string;
         };
 
+        shadows: {
+            purple1: string;
+            purple2: string;
+            purple3: string;
+            purple4: string;
+            black: string;
+        },
+
         sizes: {
             size1: string;
             size2: string;
