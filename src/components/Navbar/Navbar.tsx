@@ -1,15 +1,15 @@
-import { Link } from "react-router-dom";
-
-import { NavbarProps, NavItemProps } from "./Navbar.types";
-import {
-    HeaderWrapper,
-    NavbarDesktopWrapper, NavbarMobileWrapper, NavbarMobileMenuWrapper,
-    NavItemWrapper, NavbarItemMobileWrapper,
-} from "./Navbar.styled";
-
-import { LinkButton } from "../Button/Button";
-import brandSvg from '../../assets/svgs/brand.svg';
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import { ReactSVG } from 'react-svg';
+
+import { HeaderWrapper, NavbarDesktopWrapper, NavbarMobileWrapper, NavbarMobileMenuWrapper, NavItemWrapper, NavbarItemMobileWrapper } from "./Navbar.styled";
+import { NavbarProps, NavItemProps } from "./Navbar.types";
+
+// COMPONENTS...
+import { LinkButton } from "../LinkButton";
+
+// IMGS/SVGS...
+import brandSvg from '../../assets/svgs/brand.svg';
 
 {/* --------------------------------------------------------------------------
 | NAVBAR HEADER...
@@ -45,7 +45,17 @@ export const NavbarDesktop = ({ children }: NavbarProps) => {
         <NavbarDesktopWrapper className="navbar-desktop">
             <div className="navbar-desktop__item navbar-desktop__item--1">
                 <div className="nav-brand">
-                    <img src={brandSvg} alt="" title="Nubank" />
+                    <ReactSVG
+                        src={brandSvg} role="img" aria-label="Nubank logo marca"
+                        beforeInjection={ (svg) => {
+                            const title = document.createElementNS('http://www.w3.org/2000/svg', 'title');
+                            const desc = document.createElementNS('http://www.w3.org/2000/svg', 'desc');
+                            title.innerHTML = 'Nubank';
+                            desc.innerHTML = 'Logo marca da Nubank';
+                            svg.prepend(title);
+                            svg.prepend(desc);
+                        }}
+                    />
                 </div>
 
                 <ul className="nav-menu">
@@ -147,15 +157,18 @@ export const NavItem = ({ name, children }: NavItemProps) => {
 {/* --------------------------------------------------------------------------
 | NAVBAR ITEM MOBILE...
 |-------------------------------------------------------------------------- */}
-export const NavItemMobile = ({ name, link }: NavItemProps) => {
+export const NavItemMobile = ({ name, link, isVariation = false, children, classe }: NavItemProps) => {
     return (
-        <NavbarItemMobileWrapper className="nav-item-mobile">
-            <Link
-                className="nav-item-mobile-link"
-                to={link ? link : '#'}
-            >
-                {name}
-            </Link>
+        <NavbarItemMobileWrapper className={`nav-item-mobile ${classe}`}>
+            { isVariation
+                ? <> {children} </>
+                : <Link
+                    className="nav-item-mobile-link"
+                    to={link ? link : '#'}
+                >
+                    {name}
+                </Link>
+            }
         </NavbarItemMobileWrapper>
     );
 }

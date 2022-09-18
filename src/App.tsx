@@ -1,6 +1,6 @@
-import { useState } from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Link } from 'react-router-dom';
 import { DefaultTheme, ThemeProvider } from 'styled-components';
+import { ReactSVG } from 'react-svg';
 
 // HOOKS...
 import { usePersistedState } from './helpers/hooks/usePersistedState';
@@ -17,9 +17,15 @@ import { Navbar, NavbarDesktop, NavbarMobile, NavbarMobileMenu, NavItem, NavItem
 import { DropdownItem, DropdownMenu } from './components/Dropdown';
 import { Footer } from './components/Footer';
 
+// IMGS/SVGS...
+import facebookIcon from './assets/svgs/icon-facebook.svg';
+import instagramIcon from './assets/svgs/icon-instagram.svg';
+import twitterIcon from './assets/svgs/icon-twitter.svg';
+import youtubeIcon from './assets/svgs/icon-youtube.svg';
+
 export const App = () => {
 	const [theme] = usePersistedState<DefaultTheme>('theme', combineTheme(lightTheme));
-	
+
 	return (
 		<ThemeProvider theme={theme}>
 			<BrowserRouter>
@@ -58,17 +64,32 @@ export const App = () => {
 					<NavbarMobile></NavbarMobile>
 
 					<NavbarMobileMenu>
-						<NavItemMobile name="Nubank" link="#" />
-						<NavItemMobile name="Conta digital" link="#" />
-						<NavItemMobile name="Quero ser Nubank" link="#" />
-						<NavItemMobile name="Redes Sociais" link="#" />
+						<NavItemMobile classe="mb mb--1" name="Nubank" link="#" />
+						<NavItemMobile classe="mb mb--1" name="Conta digital" link="#" />
+						<NavItemMobile classe="mb mb--1" name="Quero ser Nubank" link="#" />
+						<NavItemMobile isVariation>
+							<Link className="nav-item-mobile-link" to="#">
+								<ReactSVG src={facebookIcon} role="img" aria-label="Facebook logo marca" />
+							</Link>
+							<Link className="nav-item-mobile-link" to="#">
+								<ReactSVG src={instagramIcon} role="img" aria-label="Instagram logo marca" />
+							</Link>
+							<Link className="nav-item-mobile-link" to="#">
+								<ReactSVG src={twitterIcon} role="img" aria-label="Twitter logo marca" />
+							</Link>
+							<Link className="nav-item-mobile-link" to="#">
+								<ReactSVG src={youtubeIcon} role="img" aria-label="Youtube logo marca" />
+							</Link>
+						</NavItemMobile>
 					</NavbarMobileMenu>
 				</Navbar>
 
 				{/* --------------------------------------------------------------------------
 				| CONTENT...
 				|-------------------------------------------------------------------------- */}
-				<Routers />
+				<main className="content">
+					<Routers />
+				</main>
 
 				{/* --------------------------------------------------------------------------
 				| FOOTER...

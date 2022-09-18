@@ -6,8 +6,10 @@ export type NavbarProps = {
 }
 
 export type NavItemProps = {
-    name: string;
+    name?: string;
     link?: string;
     children?: ReactNode;
+    isVariation?: boolean;
+    classe?: string;
 }
 

@@ -194,6 +194,21 @@ export const NavbarMobileMenuWrapper = styled.nav`
 
         display: flex;
         flex-direction: column;
+
+        svg {
+            width: ${props => props.theme.sizes.size36};
+            height: ${props => props.theme.sizes.size36};
+
+            path {
+                transition: .7s ease;
+            }
+
+            &:hover {
+                path {
+                    stroke: ${props => props.theme.colors.primaryNormal};
+                }
+            }
+        }
     }
 `;
 
