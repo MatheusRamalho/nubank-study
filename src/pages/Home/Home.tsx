@@ -8,7 +8,6 @@ import { LinkButton } from "../../components/LinkButton";
 
 // IMGS/SVGS...
 import heroBg from '../../assets/svgs/bg/bg-hero.svg';
-
 import appStoreIcon from '../../assets/svgs/icon/icon-app-store.svg';
 import playStoreIcon from '../../assets/svgs/icon/icon-play-store.svg';
 import checkIcon from '../../assets/svgs/icon/icon-check.svg';
@@ -20,14 +19,11 @@ import contactlessIcon from '../../assets/svgs/icon/icon-contactless.svg';
 import cashIcon from '../../assets/svgs/icon/icon-cash.svg';
 import transferIcon from '../../assets/svgs/icon/icon-transfer.svg';
 import phoneIcon from '../../assets/svgs/icon/icon-phone.svg';
-
 import people1Svg from '../../assets/svgs/people/people1.svg';
 import people2Svg from '../../assets/svgs/people/people2.svg';
 import people3Svg from '../../assets/svgs/people/people3.svg';
-
-import figMobile from '../../assets/svgs/app/fignu2.svg';
-
-import cardDouble from '../../assets/svgs/card/card-double.svg';
+import digitalAccountSvg from '../../assets/svgs/app/digital-account.svg';
+import cardDoubleSvg from '../../assets/svgs/card/card-double.svg';
 
 export const HomePage = () => {
     return (
@@ -118,7 +114,7 @@ export const HomePage = () => {
             {/* --------------------------------------------------------------------------
             | SECTION THE BEST...
             |-------------------------------------------------------------------------- */}
-            <Section id="sect-the-best" legend="Section o melhor de todos os bancos">
+            <Section classe="the-best" id="sect-the-best" legend="Section o melhor de todos os bancos">
                 <div className="best px px--5 py py--7">
                     <div className="best-item flex-item flex-item--auto m m--2">
                         <Header
@@ -150,14 +146,14 @@ export const HomePage = () => {
             </Section>
 
             {/* --------------------------------------------------------------------------
-            | SECTION APP...
+            | SECTION DIGITAL ACCOUNT...
             |-------------------------------------------------------------------------- */}
-            <Section id="sect-app" legend="Section tudo no app">
+            <Section classe="digital-account" id="sect-digital-account" legend="Section conta digital">
                 <div className="flex-item flex-item--1 flex flex--center mx mx--3">
-                    <ReactSVG src={figMobile} role="img" aria-label="" />
+                    <ReactSVG className="account-svg" src={digitalAccountSvg} role="img" aria-label="" />
                 </div>
 
-                <div className="flex-item flex-item--3 flex flex--column flex--start-a mx mx--2">
+                <div className="flex-item flex-item--1 flex flex--column flex--start-a mx mx--2">
                     <Header
                         caption="Conta digital"
                         title="Tudo pelo App."
@@ -222,7 +218,7 @@ export const HomePage = () => {
                 </div>
 
                 <div className="flex-item flex-item--1 flex flex--center mx mx--3">
-                    <ReactSVG src={cardDouble} role="img" aria-label="" />
+                    <ReactSVG src={cardDoubleSvg} role="img" aria-label="" />
                 </div>
             </Section>
         </>

@@ -238,24 +238,26 @@ export default createGlobalStyle`
     /* --------------------------------------------------------------------------
     | WIDTHS...
     |-------------------------------------------------------------------------- */
-    .width-auto {
-        width: auto;
-    }
+    .w {
+        &.w-auto {
+            width: auto;
+        }
 
-    .w-100 {
-        width: 100%;
-    }
+        &.w-100 {
+            width: 100%;
+        }
 
-    .w-75 {
-        width: 75%;
-    }
+        &.w-75 {
+            width: 75%;
+        }
 
-    .w-50 {
-        width: 50%;
-    }
+        &.w-50 {
+            width: 50%;
+        }
 
-    .w-25 {
-        width: 25%;
+        &.w-25 {
+            width: 25%;
+        }
     }
 
     /* --------------------------------------------------------------------------
@@ -925,7 +927,7 @@ export default createGlobalStyle`
         }
     }
 
-    @keyframes icons-hero {
+    @keyframes icon-move {
         0% {
             transform: translate3d(0, 0, 0);
         }
@@ -934,7 +936,7 @@ export default createGlobalStyle`
         }
     }
 
-    @keyframes bg-home-react {
+    @keyframes bg-move {
         0% {
             transform: translate3d(0,0,0);
         }
@@ -943,7 +945,7 @@ export default createGlobalStyle`
         }
     }
 
-    @keyframes people {
+    @keyframes opacity-img {
         0% {
             opacity: 0;
         }
@@ -954,6 +956,68 @@ export default createGlobalStyle`
 
         70%, 100% {
             opacity: 0;
+        }
+    }
+
+    @keyframes opacity-screen1 {
+        0%, 15% {
+            opacity: 1;
+        }
+
+        20%, 100% {
+            opacity: 0;
+        }
+    }
+
+    @keyframes opacity-screen2 {
+        0%, 15% {
+            opacity: 0;
+        }
+
+        20%, 35% {
+            opacity: 1;
+        }
+
+        40%, 100% {
+            opacity: 0;
+        }
+    }
+
+    @keyframes opacity-screen3 {
+        0%, 35% {
+            opacity: 0;
+        }
+
+        40%, 55% {
+            opacity: 1;
+        }
+
+        60%, 100% {
+            opacity: 0;
+        }
+    }
+
+    @keyframes opacity-screen4 {
+        0%, 55% {
+            opacity: 0;
+        }
+
+        60%, 75% {
+            opacity: 1;
+        }
+
+        80%, 100% {
+            opacity: 0;
+        }
+    }
+
+    @keyframes opacity-screen5 {
+        0%, 75% {
+            opacity: 0;
+        }
+
+        80%, 100% {
+            opacity: 1;
         }
     }
 
@@ -997,7 +1061,7 @@ export default createGlobalStyle`
                 .bg-home-react2,
                 .bg-home-react3,
                 .bg-home-react4 {
-                    animation: bg-home-react 3s ease infinite alternate;
+                    animation: bg-move 3s ease infinite alternate;
                 }
 
                 .bg-home-react1 {
@@ -1039,7 +1103,7 @@ export default createGlobalStyle`
                     z-index: 2;
                     position: absolute;
 
-                    animation: icons-hero 7s ease infinite alternate;
+                    animation: icon-move 7s ease infinite alternate;
 
                     svg { // Aplicar sombra direto no svg (diferente de um box-shadow)
                         filter: drop-shadow(0px 16px 24px rgba(169, 80, 196, 0.25));
@@ -1092,7 +1156,7 @@ export default createGlobalStyle`
     .people {
         .people1, .people2, .people3, .people4, .people5, .people6 {
             opacity: 0;
-            animation: people 10s ease 0s infinite;
+            animation: opacity-img 10s ease 0s infinite;
         }
 
         .people2 {
@@ -1125,54 +1189,91 @@ export default createGlobalStyle`
     /* --------------------------------------------------------------------------
     | SECTIONS - SECTION THE BEST...
     |-------------------------------------------------------------------------- */
-    .best {
-        position: relative;
+    .the-best {
+        .best {
+            position: relative;
 
-        background-color: ${props => props.theme.colors.whiteNormal};
-        border-radius: ${props => props.theme.sizes.size48};
+            background-color: ${props => props.theme.colors.whiteNormal};
+            border-radius: ${props => props.theme.sizes.size48};
 
-        display: flex;
-        align-items: center;
-        justify-content: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-        @include handleResponsive(s) {
-            flex-direction: column;
-        }
-
-        &::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-
-            width: ${props => props.theme.sizes.size128};
-            height: ${props => props.theme.sizes.size32};
-            background-image: url('../src/assets/svgs/icon/icon-entail.svg');
-            background-repeat: no-repeat;
-        }
-
-        .best-item {
-            div,
-            div > div,
-            div > div > svg {
-                width: auto;
+            @include handleResponsive(s) {
+                flex-direction: column;
             }
 
-            svg {
-                filter: drop-shadow(0px 16px 24px rgba(169, 80, 196, 0.25));
-                transition: .5s ease;
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 50%;
+                transform: translateX(-50%);
 
-                &:hover {
-                    transform: scale(1.05);
+                width: ${props => props.theme.sizes.size128};
+                height: ${props => props.theme.sizes.size32};
+                background-image: url('../src/assets/svgs/icon/icon-entail.svg');
+                background-repeat: no-repeat;
+            }
+
+            .best-item {
+                div,
+                div > div,
+                div > div > svg {
+                    width: auto;
                 }
-            }
 
-            p {
-                font-weight: bold;
-                text-align: center;
-                color: ${props => props.theme.colors.blackLight};
+                svg {
+                    filter: drop-shadow(0px 16px 24px rgba(169, 80, 196, 0.25));
+                    transition: .5s ease;
+
+                    &:hover {
+                        transform: scale(1.05);
+                    }
+                }
+
+                p {
+                    font-weight: bold;
+                    text-align: center;
+                    color: ${props => props.theme.colors.blackLight};
+                }
             }
         }
     }
+
+    /* --------------------------------------------------------------------------
+    | SECTIONS - SECTION DIGITAL ACCOUNT...
+    |-------------------------------------------------------------------------- */
+    .digital-account {
+        .account-svg {
+            width: 75%;
+        }
+
+        .account-icon1,
+        .account-icon2,
+        .account-icon3 {
+            animation: icon-move 3s ease 2.5s infinite alternate;
+        }
+
+        .account-screen1 {
+            animation: opacity-screen1 18s ease infinite alternate;
+        }
+        .account-screen2 {
+            animation: opacity-screen2 18s ease infinite alternate;
+        }
+        .account-screen3 {
+            animation: opacity-screen3 18s ease infinite alternate;
+        }
+        .account-screen4 {
+            animation: opacity-screen4 18s ease infinite alternate;
+        }
+        .account-screen5 {
+            animation: opacity-screen5 18s ease infinite alternate;
+        }
+    }
+
+    /* --------------------------------------------------------------------------
+    | SECTIONS - SECTION CREDIT CARD...
+    |-------------------------------------------------------------------------- */
 `;
