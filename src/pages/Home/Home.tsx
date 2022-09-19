@@ -9,6 +9,7 @@ import { LinkButton } from "../../components/LinkButton";
 // IMGS/SVGS...
 import brandFull from '../../assets/svgs/brand/brand-full.svg';
 import heroBg from '../../assets/svgs/bg/bg-hero.svg';
+import inviteBg from '../../assets/svgs/bg/bg-invite.svg';
 import appStoreIcon from '../../assets/svgs/icon/icon-app-store.svg';
 import playStoreIcon from '../../assets/svgs/icon/icon-play-store.svg';
 import appStoreFullIcon from '../../assets/svgs/icon/icon-app-store-full.svg';
@@ -34,7 +35,7 @@ export const HomePage = () => {
             {/* --------------------------------------------------------------------------
             | SECTION HERO...
             |-------------------------------------------------------------------------- */}
-            <div className="hero">
+            <div className="hero-wrapper">
                 <div className="hero-bg">
                     <ReactSVG className="svg-bg-hero" src={heroBg} role="img" aria-label="" />
                 </div>
@@ -231,8 +232,8 @@ export const HomePage = () => {
             <Section classe="app-download" id="sect-app-download" legend="Section baixe o app e crie sua conta">
                 <div className="flex-item flex-item--3 flex flex--column flex--start-a mx mx--2">
                     <Header
-                        caption="Nuconta"
-                        title="O melhor dos bancos digitais. Pra você."
+                        caption="Faça sua conta"
+                        title="Baixe. É gratuito."
                         description="Vamos lá, junte-se aos mais de 20 milhões que escolheram o Nubank. Conte com o banco digital que mais cresce no Brasil. É de graça. É para todos. Clique e baixe o App."
                     />
 
@@ -253,21 +254,25 @@ export const HomePage = () => {
             </Section>
 
             {/* --------------------------------------------------------------------------
-            | SECTION HERO 2...
+            | SECTION INVITE...
             |-------------------------------------------------------------------------- */}
-            <Section classe="hero-down" id="sect-hero-down" legend="Section baixe o app e crie sua conta">
-                <div className="flex-item flex-item--1 flex flex--column flex--center mx mx--2">
-                    <Header
-                        caption="Faça sua conta"
-                        title="Baixe. É gratuito."
-                        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis pellentesque vulputate at mattis nibh nulla est. Pharetra, eget purus tortor nibh porta ipsum enim urna viverra. Pharetra, eget purus tortor nibh porta ipsum enim urna viverra."
-                    />
+            <div className="invite-wrapper">
+                <div className="invite-bg">
+                    <ReactSVG className="svg-bg-invite" src={inviteBg} role="img" aria-label="" />
+                </div>
 
-                    <div className="flex flex--center">
+                <Section classe="invite" id="sect-invite" legend="Section baixe o app e crie sua conta">
+                    <div className="flex-item flex-item--1 flex flex--column flex--center mx mx--2 invite-content">
+                        <Header
+                            caption="Nuconta"
+                            title="O melhor dos bancos digitais. Pra você."
+                            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis pellentesque vulputate at mattis nibh nulla est. Pharetra, eget purus tortor nibh porta ipsum enim urna viverra. Pharetra, eget purus tortor nibh porta ipsum enim urna viverra."
+                        />
+
                         <LinkButton link="#" name="Quero ser Nubank" />
                     </div>
-                </div>
-            </Section>
+                </Section>
+            </div>
         </>
     );
 }

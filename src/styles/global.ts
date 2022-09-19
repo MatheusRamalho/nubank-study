@@ -1063,123 +1063,121 @@ export default createGlobalStyle`
     }
 
 
+    /* --------------------------------------------------------------------------
+    | SECTIONS - BACKGROUNDS HERO AND INVITE...
+    |-------------------------------------------------------------------------- */
+    .hero-bg,
+    .invite-bg {
+        z-index: -1;
+        position: absolute;
+
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+
+        .svg-bg-hero svg,
+        .svg-bg-invite svg {
+            width: 100%;
+
+            @include handleResponsive(xl) {
+                width: 100%;
+            }
+
+            .bg-blur1 {
+                transform: translate3d(0, -100px, 0);
+            }
+
+            .bg-blur2 {
+                transform: translate3d(0, -150px, 0);
+            }
+
+            .bg-rect1,
+            .bg-rect2,
+            .bg-rect3,
+            .bg-rect4 {
+                animation: bg-move 3s ease infinite alternate;
+            }
+
+            .bg-rect1 {
+                animation-delay: 0s;
+            }
+
+            .bg-rect2 {
+                animation-delay: 0.5s;
+            }
+
+            .bg-rect3 {
+                animation-delay: 1s;
+            }
+
+            .bg-rect4 {
+                animation-delay: 1.5s;
+            }
+        }
+    }
 
     /* --------------------------------------------------------------------------
     | SECTIONS - SECTION HERO...
     |-------------------------------------------------------------------------- */
-    .hero {
-        .hero-bg {
-            z-index: -1;
-            position: absolute;
+    #sect-hero.hero-sect {
+        height: 90vh;
 
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-
-            .svg-bg-hero svg {
-                width: 100%;
-
-                @include handleResponsive(xl) {
-                    width: 100%;
-                }
-
-                .bg-home-blur1 {
-                    transform: translate3d(0, -100px, 0);
-                }
-
-                .bg-home-blur2 {
-                    transform: translate3d(0, -150px, 0);
-                }
-
-                .bg-home-react1,
-                .bg-home-react2,
-                .bg-home-react3,
-                .bg-home-react4 {
-                    animation: bg-move 3s ease infinite alternate;
-                }
-
-                .bg-home-react1 {
-                    animation-delay: 0s;
-                }
-
-                .bg-home-react2 {
-                    animation-delay: 0.5s;
-                }
-
-                .bg-home-react3 {
-                    animation-delay: 1s;
-                }
-
-                .bg-home-react4 {
-                    animation-delay: 1.5s;
-                }
-            }
+        @include handleResponsive(s) {
+            height: auto;
         }
 
-        .hero-sect {
-            height: 90vh;
+        .hero-card {
+            perspective: 500px;
+            position: relative;
 
-            @include handleResponsive(s) {
-                height: auto;
+            .icon-card-hero,
+            .icon-contactless-hero,
+            .icon-mobile-hero {
+                z-index: 2;
+                position: absolute;
+
+                animation: icon-move 7s ease infinite alternate;
+
+                svg { // Aplicar sombra direto no svg (diferente de um box-shadow)
+                    filter: drop-shadow(0px 16px 24px rgba(169, 80, 196, 0.25));
+                }
             }
 
-            /* .container {
-                height: 100%;
-            } */
+            .icon-card-hero {
+                top: -10px;
 
-            .hero-card {
-                perspective: 500px;
-                position: relative;
+                animation-delay: 0.5s;
+            }
 
-                .icon-card-hero,
-                .icon-contactless-hero,
-                .icon-mobile-hero {
-                    z-index: 2;
-                    position: absolute;
+            .icon-contactless-hero {
+                top: 350px;
 
-                    animation: icon-move 7s ease infinite alternate;
+                animation-delay: 1s;
+            }
 
-                    svg { // Aplicar sombra direto no svg (diferente de um box-shadow)
-                        filter: drop-shadow(0px 16px 24px rgba(169, 80, 196, 0.25));
-                    }
-                }
+            .icon-mobile-hero {
+                top: 150px;
+                left: 140px;
 
-                .icon-card-hero {
-                    top: -10px;
+                animation-delay: 2.5s;
 
-                    animation-delay: 0.5s;
-                }
-
-                .icon-contactless-hero {
+                @include handleResponsive(s) {
                     top: 350px;
-
-                    animation-delay: 1s;
+                    left: -100px;
                 }
+            }
 
-                .icon-mobile-hero {
-                    top: 150px;
-                    left: 140px;
+            .card {
+                z-index: -1;
+                width: 340px;
+                height: calc(0.64 * 340px);
+                border-radius: ${props => props.theme.sizes.size12};
+                box-shadow: ${props => props.theme.shadows.purple4};
 
-                    animation-delay: 2.5s;
-
-                    @include handleResponsive(s) {
-                        top: 350px;
-                        left: -100px;
-                    }
-                }
-
-                .card {
-                    z-index: -1;
-                    width: 340px;
-                    height: calc(0.64 * 340px);
-                    border-radius: ${props => props.theme.sizes.size12};
-                    box-shadow: ${props => props.theme.shadows.purple4};
-
-                    transform-origin: center center;
-                    transform-style: preserve-3d;
-                    animation: flip-card 12s linear infinite alternate,
-                        change-card 12s linear 0s infinite alternate;
-                }
+                transform-origin: center center;
+                transform-style: preserve-3d;
+                animation: flip-card 12s linear infinite alternate,
+                    change-card 12s linear 0s infinite alternate;
             }
         }
     }
@@ -1187,7 +1185,7 @@ export default createGlobalStyle`
     /* --------------------------------------------------------------------------
     | SECTIONS - SECTION PEOPLE...
     |-------------------------------------------------------------------------- */
-    .people {
+    #sect-people.people {
         .people1, .people2, .people3, .people4, .people5, .people6 {
             opacity: 0;
             animation: opacity-img 10s ease 0s infinite;
@@ -1223,7 +1221,7 @@ export default createGlobalStyle`
     /* --------------------------------------------------------------------------
     | SECTIONS - SECTION THE BEST...
     |-------------------------------------------------------------------------- */
-    .the-best {
+    #sect-the-best.the-best {
         .best {
             position: relative;
 
@@ -1279,7 +1277,7 @@ export default createGlobalStyle`
     /* --------------------------------------------------------------------------
     | SECTIONS - SECTION DIGITAL ACCOUNT...
     |-------------------------------------------------------------------------- */
-    .digital-account {
+    #sect-digital-account.digital-account {
         .account-svg {
             width: 75%;
         }
@@ -1310,7 +1308,7 @@ export default createGlobalStyle`
     /* --------------------------------------------------------------------------
     | SECTIONS - SECTION CREDIT CARD...
     |-------------------------------------------------------------------------- */
-    .credit-card {
+    #sect-credit-card.credit-card {
         .card-svg {
             width: 85%;
         }
@@ -1338,7 +1336,7 @@ export default createGlobalStyle`
     /* --------------------------------------------------------------------------
     | SECTIONS - SECTION APP DOWNLOAD...
     |-------------------------------------------------------------------------- */
-    .app-download {
+    #sect-app-download.app-download {
         .brand-download-svg {
             width: 80%;
         }
@@ -1346,6 +1344,22 @@ export default createGlobalStyle`
         .brand-full-letter-u,
         .brand-full-letter-n {
             animation: move-line-letter 4s ease infinite alternate;
+        }
+    }
+
+    /* --------------------------------------------------------------------------
+    | SECTIONS - SECTION HERO DOWN...
+    |-------------------------------------------------------------------------- */
+    #sect-invite.invite {
+        height: 90vh;
+
+        @include handleResponsive(s) {
+            height: auto;
+        }
+
+        .invite-content {
+            max-width: 700px;
+            text-align: center;
         }
     }
 `;
