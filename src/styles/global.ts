@@ -41,10 +41,6 @@ export default createGlobalStyle`
         }
     }
 
-    main {
-        padding-top: 4.5rem;
-    }
-
     /* --------------------------------------------------------------------------
     | LISTS...
     |-------------------------------------------------------------------------- */
@@ -65,7 +61,7 @@ export default createGlobalStyle`
     | LINKS...
     |-------------------------------------------------------------------------- */
     a {
-        ${handleTypefaceText({ size: 'text-2', device: 'desktop' })};
+        ${handleTypefaceText({ size: 'text-3', device: 'desktop' })};
 
         color: ${props => props.theme.colors.blackNormal};
         text-decoration: none;
@@ -159,12 +155,12 @@ export default createGlobalStyle`
         align-items: center;
         flex-direction: row;
 
+        /* ${handleResponsive({ device: 's' })}; */
+        /* @include handleResponsive(s) {
+            padding: ${props => props.theme.sizes.size32} ${props => props.theme.sizes.size18};
+            flex-direction: column;
+        } */
     }
-    /* ${handleResponsive({ device: 's' })}; */
-    /* @include handleResponsive(s) {
-        padding: ${props => props.theme.sizes.size32} ${props => props.theme.sizes.size18};
-        flex-direction: column;
-    } */
 
     /* --------------------------------------------------------------------------
     | FLEXBOX...
@@ -868,9 +864,120 @@ export default createGlobalStyle`
     }
 
     /* --------------------------------------------------------------------------
-    | ...
+    | ANIMATES...
+    |-------------------------------------------------------------------------- */
+    @keyframes flip-card {
+        0% {
+            transform: rotateX(-10deg) rotateY(10deg) rotate(-15deg);
+        }
+
+        40% {
+            transform: rotateX(0deg) rotateY(20deg);
+        }
+
+        60% {
+            transform: rotateX(180deg) rotateY(20deg);
+        }
+
+        100% {
+            transform: rotateX(190deg) rotateY(10deg) rotate(15deg);
+        }
+    }
+
+    @keyframes change-card {
+        0%, 49% {
+            background-image: url("../src/assets/svgs/nubank.svg");
+            background-size: cover;
+        }
+
+        50%, 100% {
+            background-image: url("../src/assets/svgs/nubank-verse.svg");
+            background-size: cover;
+        }
+    }
+
+    @keyframes icons-hero {
+        0% {
+            transform: translate3d(0, 0, 0);
+        }
+        100% {
+            transform: translate3d(10px, -40px, 0);
+        }
+    }
+
+     /* --------------------------------------------------------------------------
+    | SPECIFICIES...
+    |-------------------------------------------------------------------------- */
+    .hero {
+        height: 90vh;
+
+        /* ${handleResponsive({ device: 's' })}; */
+        /* @include handleResponsive(s) {
+            height: auto;
+        } */
+    }
+
+    .hero-card {
+        perspective: 500px;
+        position: relative;
+
+        .icon-card-hero,
+        .icon-contactless-hero,
+        .icon-mobile-hero {
+            z-index: 2;
+            position: absolute;
+
+            animation: icons-hero 7s ease infinite alternate;
+
+            svg { // Aplicar sombra direto no svg (diferente de um box-shadow)
+                filter: drop-shadow(0px 16px 24px rgba(169, 80, 196, 0.25));
+            }
+        }
+
+        .icon-card-hero {
+            top: -10px;
+
+            animation-delay: 0.5s;
+        }
+
+        .icon-contactless-hero {
+            top: 350px;
+
+            animation-delay: 1s;
+        }
+
+        .icon-mobile-hero {
+            top: 150px;
+            left: 140px;
+
+            animation-delay: 2.5s;
+
+            /* ${handleResponsive({ device: 's' })}; */
+            /* @include handleResponsive(s) {
+                top: 350px;
+                left: -100px;
+            } */
+        }
+
+        .card {
+            z-index: -1;
+            width: 340px;
+            height: calc(0.64 * 340px);
+            border-radius: ${props => props.theme.sizes.size12};
+            box-shadow: ${props => props.theme.shadows.purple4};
+
+            transform-origin: center center;
+            transform-style: preserve-3d;
+            animation: flip-card 12s linear infinite alternate,
+                change-card 12s linear 0s infinite alternate;
+        }
+    }
+
+    /* --------------------------------------------------------------------------
+    | TESTES...
     |-------------------------------------------------------------------------- */
     .border {
         border: ${props => props.theme.sizes.size6} dashed #E7E7E7;
     }
+
 `;

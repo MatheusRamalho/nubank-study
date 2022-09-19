@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export const LinkButtonWrapper = styled(Link)`
     width: fit-content;
-    margin: ${props => props.theme.sizes.size6};
+    /* margin: ${props => props.theme.sizes.size6}; */
     padding: ${props => props.theme.sizes.size12} ${props => props.theme.sizes.size32};
     border: none;
     border-radius: ${props => props.theme.sizes.size16};
