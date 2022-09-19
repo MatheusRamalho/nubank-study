@@ -2,14 +2,14 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ReactSVG } from 'react-svg';
 
-import { HeaderWrapper, NavbarDesktopWrapper, NavbarMobileWrapper, NavbarMobileMenuWrapper, NavItemWrapper, NavbarItemMobileWrapper } from "./Navbar.styled";
+import { NavbarWrapper, NavbarDesktopWrapper, NavbarMobileWrapper, NavbarMobileMenuWrapper, NavItemWrapper, NavbarItemMobileWrapper } from "./Navbar.styled";
 import { NavbarProps, NavItemProps } from "./Navbar.types";
 
 // COMPONENTS...
 import { LinkButton } from "../LinkButton";
 
 // IMGS/SVGS...
-import brandSvg from '../../assets/svgs/brand.svg';
+import brandSvg from '../../assets/svgs/brand/brand.svg';
 
 {/* --------------------------------------------------------------------------
 | NAVBAR HEADER...
@@ -28,12 +28,12 @@ export const Navbar = ({ children, isActive = false }: NavbarProps) => {
     window.addEventListener('scroll', handleScrollHeader);
 
     return (
-        <HeaderWrapper
+        <NavbarWrapper
             id="header"
             className={`header ${isActive ? 'header--active' : ''}`}
         >
             {children}
-        </HeaderWrapper>
+        </NavbarWrapper>
     );
 }
 

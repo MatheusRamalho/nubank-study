@@ -2,15 +2,29 @@ import { ReactSVG } from "react-svg";
 
 // COMPONENTS...
 import { Section } from "../../components/Section";
+import { Header } from "../../components/Header";
+import { List, ListItem } from "../../components/List";
 import { LinkButton } from "../../components/LinkButton";
 
 // IMGS/SVGS...
-import appStoreIcon from '../../assets/svgs/icon-app-store.svg';
-import playStoreIcon from '../../assets/svgs/icon-play-store.svg';
-import cardIcon from '../../assets/svgs/icon-card.svg';
-import mobileIcon from '../../assets/svgs/icon-mobile.svg';
-import contactlessIcon from '../../assets/svgs/icon-contactless.svg';
-import heroBackground from '../../assets/svgs/bg-home.svg';
+import heroBg from '../../assets/svgs/bg/bg-hero.svg';
+
+import appStoreIcon from '../../assets/svgs/icon/icon-app-store.svg';
+import playStoreIcon from '../../assets/svgs/icon/icon-play-store.svg';
+import checkIcon from '../../assets/svgs/icon/icon-check.svg';
+import cardIcon from '../../assets/svgs/icon/icon-card.svg';
+import mobileIcon from '../../assets/svgs/icon/icon-mobile.svg';
+import configIcon from '../../assets/svgs/icon/icon-config.svg';
+import timeIcon from '../../assets/svgs/icon/icon-time.svg';
+import contactlessIcon from '../../assets/svgs/icon/icon-contactless.svg';
+
+import people1Svg from '../../assets/svgs/people/people1.svg';
+import people2Svg from '../../assets/svgs/people/people2.svg';
+import people3Svg from '../../assets/svgs/people/people3.svg';
+
+import figMobile from '../../assets/svgs/app/fignu2.svg';
+
+import cardDouble from '../../assets/svgs/card/card-double.svg';
 
 export const HomePage = () => {
     return (
@@ -18,12 +32,12 @@ export const HomePage = () => {
             {/* --------------------------------------------------------------------------
             | SECTION HERO...
             |-------------------------------------------------------------------------- */}
-            <Section classe="hero" id="sect-hero" legend="Section de aterrissagem">
+            <div className="hero">
                 <div className="hero-bg">
-                    <ReactSVG className="svg-bg-hero" src={heroBackground} role="img" aria-label="" />
+                    <ReactSVG className="svg-bg-hero" src={heroBg} role="img" aria-label="" />
                 </div>
 
-                <div className="container py py--9">
+                <Section classe="hero-sect py py--9" id="sect-hero" legend="Section de aterrissagem">
                     <div className="flex-item flex-item--1 py py--7">
                         <h1> Ser Nubank é reinventar sua vida financeira. </h1>
                         <p className="my my--2"> Conta com rendimento acima da poupança, cartão de crédito sem anuidade e o melhor: resolva tudo pelo app. </p>
@@ -48,6 +62,136 @@ export const HomePage = () => {
 
                         <div className="card"></div>
                     </div>
+                </Section>
+            </div>
+
+            {/* --------------------------------------------------------------------------
+            | SECTION PEOPLE...
+            |-------------------------------------------------------------------------- */}
+            <Section id="sect-people" legend="Section para todos">
+                <div className="flex-item flex-item--4 flex flex--column flex--start-a mx mx--2">
+                    <Header
+                        caption="Para todos"
+                        title="Completo."
+                        description="Resolva seu dia a dia pelo celular. Sem filas, sem anuidade, sem tarifas abusivas. Cuide do seu dinheiro de um jeito simples. Somos eficientes para você usar seu dinheiro com o que realmente importa, sem tarifas de manutenção."
+                    />
+
+                    <List>
+                        <ListItem
+                            title="100% gratuito."
+                            description="Isso mesmo, você não paga nada para abrir sua conta."
+                        >
+                            <ReactSVG src={checkIcon} role="img" aria-label="" />
+                        </ListItem>
+
+                        <ListItem
+                            title="Sem taxas ou cobranças."
+                            description="Não se preocupe com taxas adicionais ou anuidades."
+                        >
+                            <ReactSVG src={checkIcon} role="img" aria-label="" />
+                        </ListItem>
+
+                        <ListItem
+                            title="O melhor suporte de todos."
+                            description="Segundo pesquisas, temos o melhor suporte pra você."
+                        >
+                            <ReactSVG src={checkIcon} role="img" aria-label="" />
+                        </ListItem>
+                    </List>
+
+                    <LinkButton isQuaternary link="#"> Confira os benefícios </LinkButton>
+                </div>
+
+                <div className="flex-item flex-item--3 mx mx--2">
+                    <ReactSVG src={people1Svg} role="img" aria-label="" />
+                </div>
+
+                <div className="flex-item flex-item--1 flex flex--column mx mx--2 my my--3">
+                    <ReactSVG className="mb mb--4" src={people2Svg} role="img" aria-label="" />
+                    <ReactSVG src={people3Svg} role="img" aria-label="" />
+                </div>
+            </Section>
+
+            {/* --------------------------------------------------------------------------
+            | SECTION THE BEST...
+            |-------------------------------------------------------------------------- */}
+            <Section id="sect-the-best" legend="Section o melhor de todos os bancos">
+            </Section>
+
+            {/* --------------------------------------------------------------------------
+            | SECTION APP...
+            |-------------------------------------------------------------------------- */}
+            <Section id="sect-app" legend="Section tudo no app">
+                <div className="flex-item flex-item--1 flex flex--center mx mx--3">
+                    <ReactSVG src={figMobile} role="img" aria-label="" />
+                </div>
+
+                <div className="flex-item flex-item--3 flex flex--column flex--start-a mx mx--2">
+                    <Header
+                        caption="Conta digital"
+                        title="Tudo pelo App."
+                        description="Nossa conta digital com mais de 20 milhões de clientes em todo o Brasil. Pague suas contas, ajuste seu limite, bloqueie e desbloqueie o cartão quando quiser e acompanhe cada movimentação em tempo real. Tudo pelo aplicativo."
+                    />
+
+                    <List>
+                        <ListItem
+                            title="Tudo na palma da sua mão."
+                            description="Conta digital. Você resolve tudo pelo App. Tudo."
+                        >
+                            <ReactSVG src={mobileIcon} role="img" aria-label="" />
+                        </ListItem>
+
+                        <ListItem
+                            title="Sem filas ou burocracias."
+                            description="Investimos no melhor suporte pra isso. Não tem filas. Economia de tempo."
+                        >
+                            <ReactSVG src={configIcon} role="img" aria-label="" />
+                        </ListItem>
+
+                        <ListItem
+                            title="Configure tudo no app."
+                            description="Toda a configuração e acesso aos novos recursos a um clique de distância."
+                        >
+                            <ReactSVG src={timeIcon} role="img" aria-label="" />
+                        </ListItem>
+                    </List>
+
+                    <LinkButton isQuaternary link="#"> Segura e sem conplicações </LinkButton>
+                </div>
+            </Section>
+
+            {/* --------------------------------------------------------------------------
+            | SECTION CARD...
+            |-------------------------------------------------------------------------- */}
+            <Section id="sect-card" legend="Section tudo no app">
+                <div className="flex-item flex-item--3 flex flex--column flex--start-a mx mx--2">
+                    <Header
+                        caption="Seu roxinho"
+                        title="Crédito e débito."
+                        description="Pode chamar ele de roxinho. Além disso, pode chamar ele de moderno, gratuito e prático também. Facilidade e segurança para você em mais de 30 milhões de estabelecimentos, além dos benefícios Mastercard."
+                    />
+
+                    <List>
+                        <ListItem
+                            title="Tecnologia Contactless"
+                            description="Tecnologia de pagamento por aproximação. Mais agilidade no dia a dia."
+                        >
+                            <ReactSVG src={contactlessIcon} role="img" aria-label="" />
+                        </ListItem>
+
+                        <ListItem
+                            title="Cartão virtual."
+                            description="Você pode gerar cartões virtuais no app para suas compras online. Mais segurança."
+                        >
+                            <ReactSVG src={cardIcon} role="img" aria-label="" />
+                        </ListItem>
+                    </List>
+
+                    <LinkButton isQuaternary link="#"> Saiba mais </LinkButton>
+                </div>
+
+                <div className="flex-item flex-item--1 flex flex--center mx mx--3">
+                    <ReactSVG src={cardDouble} role="img" aria-label="" />
                 </div>
             </Section>
         </>

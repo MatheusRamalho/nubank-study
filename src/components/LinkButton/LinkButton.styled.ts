@@ -23,11 +23,39 @@ export const LinkButtonWrapper = styled(Link)`
         color: ${props => props.theme.colors.blackNormal};
     }
 
-    &.link-button--tertiary {
+    &.link-button--tertiary,
+    &.link-button--quaternary {
         padding: 0;
         background: transparent;
         box-shadow: none;
         color: ${props => props.theme.colors.blackNormal};
+    }
+
+    &.link-button--quaternary {
+        position: relative;
+
+        display: inline-block;
+
+        padding: ${props => props.theme.sizes.size16} ${props => props.theme.sizes.size16} ${props => props.theme.sizes.size16} ${props => props.theme.sizes.size40};
+        background-image: url("../../../src/assets/svgs/icon/icon-arrow.svg");
+        background-repeat: no-repeat;
+        background-position: 0% 50%;
+
+        font-size: ${props => props.theme.sizes.size18};
+        color: ${props => props.theme.colors.primaryNormal};
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 75%;
+            left: 56px;
+
+            width: 0%;
+            height: ${props => props.theme.sizes.size2};
+            border-radius: ${props => props.theme.sizes.size2};
+            background-color: ${props => props.theme.colors.secondaryLight};
+            transition: .5s ease;
+        }
     }
 
     &:disabled {
@@ -35,14 +63,21 @@ export const LinkButtonWrapper = styled(Link)`
         opacity: 0.5;
     }
 
-    &:not(:disabled):hover {
+    &:not(:disabled, .link-button--tertiary, .link-button--quaternary):hover {
         cursor: pointer;
         transform: scale(1.02);
         box-shadow: ${props => props.theme.shadows.purple2};
     }
 
-    &:not(:disabled).button--secondary:hover {
+    &:not(:disabled).link-button--tertiary:hover {
         cursor: pointer;
         opacity: .9;
+        color: ${props => props.theme.colors.primaryNormal};
+    }
+
+    &:not(:disabled).link-button--quaternary:hover {
+        cursor: pointer;
+        opacity: .9;
+        color: ${props => props.theme.colors.primaryNormal};
     }
 `;

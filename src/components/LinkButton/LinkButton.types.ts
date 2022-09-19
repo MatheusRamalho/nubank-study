@@ -5,5 +5,6 @@ export type LinkButtonProps = {
     link?: string;
     isSecondary?: boolean,
     isTertiary?: boolean,
+    isQuaternary?: boolean,
     children?: ReactNode;
 };

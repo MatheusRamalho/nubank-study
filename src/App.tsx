@@ -18,10 +18,10 @@ import { DropdownItem, DropdownMenu } from './components/Dropdown';
 import { Footer } from './components/Footer';
 
 // IMGS/SVGS...
-import facebookIcon from './assets/svgs/icon-facebook.svg';
-import instagramIcon from './assets/svgs/icon-instagram.svg';
-import twitterIcon from './assets/svgs/icon-twitter.svg';
-import youtubeIcon from './assets/svgs/icon-youtube.svg';
+import facebookIcon from './assets/svgs/icon/icon-facebook.svg';
+import instagramIcon from './assets/svgs/icon/icon-instagram.svg';
+import twitterIcon from './assets/svgs/icon/icon-twitter.svg';
+import youtubeIcon from './assets/svgs/icon/icon-youtube.svg';
 
 export const App = () => {
 	const [theme] = usePersistedState<DefaultTheme>('theme', combineTheme(lightTheme));

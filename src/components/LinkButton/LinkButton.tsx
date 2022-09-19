@@ -6,10 +6,10 @@ import { LinkButtonProps } from "./LinkButton.types";
 {/* --------------------------------------------------------------------------
 | LINK BUTTON...
 |-------------------------------------------------------------------------- */}
-export function LinkButton({ name, link, isSecondary = false, isTertiary = false, children }: LinkButtonProps) {
+export function LinkButton({ name, link, children, isSecondary = false, isTertiary = false, isQuaternary = false }: LinkButtonProps) {
     return (
         <LinkButtonWrapper
-            className={`link-button ${isSecondary ? 'link-button--secondary' : ''} ${isTertiary ? 'link-button--tertiary' : ''}`}
+            className={`link-button ${isSecondary ? 'link-button--secondary' : ''} ${isTertiary ? 'link-button--tertiary' : ''} ${isQuaternary ? 'link-button--quaternary' : ''}`}
             to={link ? link : '#'}
         >
             {name ? name : ''}

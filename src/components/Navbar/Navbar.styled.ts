@@ -4,7 +4,7 @@ import { handleResponsive, handleTypefaceTitle } from "../../styles/mixins";
 /* --------------------------------------------------------------------------
 | NAVBAR HEADER...
 |-------------------------------------------------------------------------- */
-export const HeaderWrapper = styled.header`
+export const NavbarWrapper = styled.header`
     position: fixed;
     z-index: 999;
 
