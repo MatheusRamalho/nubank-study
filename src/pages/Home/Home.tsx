@@ -228,11 +228,11 @@ export const HomePage = () => {
             {/* --------------------------------------------------------------------------
             | SECTION APP DOWNLOAD...
             |-------------------------------------------------------------------------- */}
-            <Section classe="app-download" id="sect-app-download" legend="Section crie sua conta">
+            <Section classe="app-download" id="sect-app-download" legend="Section baixe o app e crie sua conta">
                 <div className="flex-item flex-item--3 flex flex--column flex--start-a mx mx--2">
                     <Header
-                        caption="Faça sua conta"
-                        title="Baixe. É gratuito."
+                        caption="Nuconta"
+                        title="O melhor dos bancos digitais. Pra você."
                         description="Vamos lá, junte-se aos mais de 20 milhões que escolheram o Nubank. Conte com o banco digital que mais cresce no Brasil. É de graça. É para todos. Clique e baixe o App."
                     />
 
@@ -241,14 +241,31 @@ export const HomePage = () => {
                             <ReactSVG src={appStoreFullIcon} role="img" aria-label="Nubank logo marca" />
                         </LinkButton>
 
-                        <LinkButton isSecondary link="#">
+                        <LinkButton isSecondary link="#" classe="ml ml--4">
                             <ReactSVG src={playStoreFullIcon} role="img" aria-label="Nubank logo marca" />
                         </LinkButton>
                     </div>
                 </div>
 
                 <div className="flex-item flex-item--1 flex flex--center mx mx--3">
-                    <ReactSVG className="card-svg" src={brandFull} role="img" aria-label="" />
+                    <ReactSVG className="brand-download-svg" src={brandFull} role="img" aria-label="" />
+                </div>
+            </Section>
+
+            {/* --------------------------------------------------------------------------
+            | SECTION HERO 2...
+            |-------------------------------------------------------------------------- */}
+            <Section classe="hero-down" id="sect-hero-down" legend="Section baixe o app e crie sua conta">
+                <div className="flex-item flex-item--1 flex flex--column flex--center mx mx--2">
+                    <Header
+                        caption="Faça sua conta"
+                        title="Baixe. É gratuito."
+                        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quis pellentesque vulputate at mattis nibh nulla est. Pharetra, eget purus tortor nibh porta ipsum enim urna viverra. Pharetra, eget purus tortor nibh porta ipsum enim urna viverra."
+                    />
+
+                    <div className="flex flex--center">
+                        <LinkButton link="#" name="Quero ser Nubank" />
+                    </div>
                 </div>
             </Section>
         </>

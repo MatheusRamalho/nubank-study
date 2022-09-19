@@ -1041,6 +1041,20 @@ export default createGlobalStyle`
         }
     }
 
+    @keyframes move-line-letter {
+        0% {
+            stroke-width: 0;
+            stroke-dasharray: 0 400;
+            stroke-opacity: 0;
+        }
+
+        60%, 100% {
+            stroke-width: 4;
+            stroke-dasharray: 400 0;
+            stroke-opacity: 1;
+        }
+    }
+
     /* --------------------------------------------------------------------------
     | TESTES...
     |-------------------------------------------------------------------------- */
@@ -1318,6 +1332,20 @@ export default createGlobalStyle`
             transform-box: fill-box;
             fill-opacity: 0.15;
             animation: opacity-shadow 3s ease 1s infinite alternate;
+        }
+    }
+
+    /* --------------------------------------------------------------------------
+    | SECTIONS - SECTION APP DOWNLOAD...
+    |-------------------------------------------------------------------------- */
+    .app-download {
+        .brand-download-svg {
+            width: 80%;
+        }
+
+        .brand-full-letter-u,
+        .brand-full-letter-n {
+            animation: move-line-letter 4s ease infinite alternate;
         }
     }
 `;

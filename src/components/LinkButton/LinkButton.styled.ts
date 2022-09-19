@@ -18,6 +18,7 @@ export const LinkButtonWrapper = styled(Link)`
 
     &.link-button--secondary {
         background: ${props => props.theme.colors.whiteLight};
+        box-shadow: none;
         color: ${props => props.theme.colors.blackNormal};
     }
 
@@ -66,6 +67,10 @@ export const LinkButtonWrapper = styled(Link)`
         cursor: pointer;
         transform: scale(1.02);
         box-shadow: ${props => props.theme.shadows.purple2};
+    }
+
+    &:not(:disabled).link-button--secondary:hover {
+        box-shadow: ${props => props.theme.shadows.purple3};
     }
 
     &:not(:disabled).link-button--tertiary:hover {
