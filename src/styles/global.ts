@@ -1021,6 +1021,26 @@ export default createGlobalStyle`
         }
     }
 
+    @keyframes opacity-shadow {
+        0% {
+            fill-opacity: 0.15;
+        }
+
+        100% {
+            fill-opacity: 0.4;
+        }
+    }
+
+    @keyframes move-and-rotate {
+        0% {
+            transform: translate3d(0,-40px,0) rotate(0deg);
+        }
+
+        100% {
+            transform: translate3d(0,20px,0) rotate(5deg);
+        }
+    }
+
     /* --------------------------------------------------------------------------
     | TESTES...
     |-------------------------------------------------------------------------- */
@@ -1276,4 +1296,28 @@ export default createGlobalStyle`
     /* --------------------------------------------------------------------------
     | SECTIONS - SECTION CREDIT CARD...
     |-------------------------------------------------------------------------- */
+    .credit-card {
+        .card-svg {
+            width: 85%;
+        }
+
+        .card-double-front,
+        .card-double-back {
+            transform-origin: center center;
+            transform-box: fill-box;
+            transform: translate3d(0,-40px,0);
+            animation: move-and-rotate 3s ease infinite alternate;
+        }
+
+        .card-double-front {
+            animation-delay: 1s;
+        }
+
+        .card-double-shadow {
+            transform-origin: center center;
+            transform-box: fill-box;
+            fill-opacity: 0.15;
+            animation: opacity-shadow 3s ease 1s infinite alternate;
+        }
+    }
 `;

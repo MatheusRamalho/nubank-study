@@ -7,9 +7,12 @@ import { List, ListItem } from "../../components/List";
 import { LinkButton } from "../../components/LinkButton";
 
 // IMGS/SVGS...
+import brandFull from '../../assets/svgs/brand/brand-full.svg';
 import heroBg from '../../assets/svgs/bg/bg-hero.svg';
 import appStoreIcon from '../../assets/svgs/icon/icon-app-store.svg';
 import playStoreIcon from '../../assets/svgs/icon/icon-play-store.svg';
+import appStoreFullIcon from '../../assets/svgs/icon/icon-app-store-full.svg';
+import playStoreFullIcon from '../../assets/svgs/icon/icon-play-store-full.svg';
 import checkIcon from '../../assets/svgs/icon/icon-check.svg';
 import cardIcon from '../../assets/svgs/icon/icon-card.svg';
 import mobileIcon from '../../assets/svgs/icon/icon-mobile.svg';
@@ -190,7 +193,7 @@ export const HomePage = () => {
             {/* --------------------------------------------------------------------------
             | SECTION CARD...
             |-------------------------------------------------------------------------- */}
-            <Section id="sect-card" legend="Section tudo no app">
+            <Section classe="credit-card" id="sect-credit-card" legend="Section tudo no app">
                 <div className="flex-item flex-item--3 flex flex--column flex--start-a mx mx--2">
                     <Header
                         caption="Seu roxinho"
@@ -218,7 +221,34 @@ export const HomePage = () => {
                 </div>
 
                 <div className="flex-item flex-item--1 flex flex--center mx mx--3">
-                    <ReactSVG src={cardDoubleSvg} role="img" aria-label="" />
+                    <ReactSVG className="card-svg" src={cardDoubleSvg} role="img" aria-label="" />
+                </div>
+            </Section>
+
+            {/* --------------------------------------------------------------------------
+            | SECTION CARD...
+            |-------------------------------------------------------------------------- */}
+            <Section classe="account-create" id="sect-account-create" legend="Section crie sua conta">
+                <div className="flex-item flex-item--3 flex flex--column flex--start-a mx mx--2">
+                    <Header
+                        caption="Faça sua conta"
+                        title="Baixe. É gratuito."
+                        description="Vamos lá, junte-se aos mais de 20 milhões que escolheram o Nubank. Conte com o banco digital que mais cresce no Brasil. É de graça. É para todos. Clique e baixe o App."
+                    />
+
+                    <div className="flex flex--start">
+                        <LinkButton isSecondary link="#">
+                            <ReactSVG src={appStoreFullIcon} role="img" aria-label="Nubank logo marca" />
+                        </LinkButton>
+
+                        <LinkButton isSecondary link="#">
+                            <ReactSVG src={playStoreFullIcon} role="img" aria-label="Nubank logo marca" />
+                        </LinkButton>
+                    </div>
+                </div>
+
+                <div className="flex-item flex-item--1 flex flex--center mx mx--3">
+                    <ReactSVG className="card-svg" src={brandFull} role="img" aria-label="" />
                 </div>
             </Section>
         </>
