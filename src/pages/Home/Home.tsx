@@ -226,9 +226,9 @@ export const HomePage = () => {
             </Section>
 
             {/* --------------------------------------------------------------------------
-            | SECTION CARD...
+            | SECTION APP DOWNLOAD...
             |-------------------------------------------------------------------------- */}
-            <Section classe="account-create" id="sect-account-create" legend="Section crie sua conta">
+            <Section classe="app-download" id="sect-app-download" legend="Section crie sua conta">
                 <div className="flex-item flex-item--3 flex flex--column flex--start-a mx mx--2">
                     <Header
                         caption="Faça sua conta"
