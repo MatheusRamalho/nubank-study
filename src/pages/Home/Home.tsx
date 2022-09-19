@@ -107,7 +107,7 @@ export const HomePage = () => {
                 </div>
 
                 <div className="flex-item flex-item--1 flex flex--column mx mx--2 my my--3">
-                    <ReactSVG className="mb mb--4" src={people2Svg} role="img" aria-label="" />
+                    <ReactSVG id="people2" className="mb mb--4" src={people2Svg} role="img" aria-label="" />
                     <ReactSVG src={people3Svg} role="img" aria-label="" />
                 </div>
             </Section>

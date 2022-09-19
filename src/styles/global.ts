@@ -51,7 +51,6 @@ export default createGlobalStyle`
     /* --------------------------------------------------------------------------
     | FILES...
     |-------------------------------------------------------------------------- */
-
     img, picture, video, canvas, svg {
         display: block;
         width: 100%;
@@ -921,12 +920,28 @@ export default createGlobalStyle`
         }
     }
 
+    @keyframes people {
+        0% {
+            opacity: 0;
+        }
+
+        20%, 50% {
+            opacity: 1;
+        }
+
+        70%, 100% {
+            opacity: 0;
+        }
+    }
+
     /* --------------------------------------------------------------------------
     | TESTES...
     |-------------------------------------------------------------------------- */
     .border {
         border: ${props => props.theme.sizes.size4} dashed red;
     }
+
+
 
     /* --------------------------------------------------------------------------
     | SPECIFIC CSS - SECTION HERO...
@@ -1052,6 +1067,35 @@ export default createGlobalStyle`
     | SPECIFIC CSS - SECTION PEOPLE...
     |-------------------------------------------------------------------------- */
     #sect-people {
+        .people1, .people2, .people3, .people4, .people5, .people6 {
+            opacity: 0;
+            animation: people 10s ease 0s infinite;
+        }
 
+        .people2 {
+            animation-delay: 5s;
+        }
+
+        .people3 {
+            animation-delay: 2s;
+        }
+
+        .people4 {
+            animation-delay: 7s;
+        }
+
+        .people5 {
+            animation-delay: 3s;
+        }
+
+        .people6 {
+            animation-delay: 8s;
+        }
+
+        #people2 { // Removendo uma imagem no mobile...
+            @include handleResponsive(s) {
+                display: none;
+            }
+        }
     }
 `;

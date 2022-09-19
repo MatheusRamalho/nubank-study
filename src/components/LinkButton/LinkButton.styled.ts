@@ -3,13 +3,11 @@ import { Link } from "react-router-dom";
 
 export const LinkButtonWrapper = styled(Link)`
     width: fit-content;
-    /* margin: ${props => props.theme.sizes.size6}; */
     padding: ${props => props.theme.sizes.size12} ${props => props.theme.sizes.size32};
     border: none;
     border-radius: ${props => props.theme.sizes.size16};
     background: ${props => props.theme.colors.gradient};
     box-shadow: ${props => props.theme.shadows.purple1};
-    /* color: ${props => props.theme.colors.whiteLight}; */
     color: ${props => props.theme.colors.whiteNormal};
     text-decoration: none;
     transition: .5 ease;
@@ -44,12 +42,13 @@ export const LinkButtonWrapper = styled(Link)`
         font-size: ${props => props.theme.sizes.size18};
         color: ${props => props.theme.colors.primaryNormal};
 
-        &::before {
+        &::after {
             content: '';
             position: absolute;
             top: 75%;
             left: 56px;
 
+            display: block;
             width: 0%;
             height: ${props => props.theme.sizes.size2};
             border-radius: ${props => props.theme.sizes.size2};
@@ -77,7 +76,12 @@ export const LinkButtonWrapper = styled(Link)`
 
     &:not(:disabled).link-button--quaternary:hover {
         cursor: pointer;
-        opacity: .9;
-        color: ${props => props.theme.colors.primaryNormal};
+        opacity: .8;
+        padding-left: ${props => props.theme.sizes.size64};
+        background-position: 8px 50%;
+
+        &::after {
+            width: 100%;
+        }
     }
 `;
