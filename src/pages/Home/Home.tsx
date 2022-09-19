@@ -17,6 +17,9 @@ import mobileIcon from '../../assets/svgs/icon/icon-mobile.svg';
 import configIcon from '../../assets/svgs/icon/icon-config.svg';
 import timeIcon from '../../assets/svgs/icon/icon-time.svg';
 import contactlessIcon from '../../assets/svgs/icon/icon-contactless.svg';
+import cashIcon from '../../assets/svgs/icon/icon-cash.svg';
+import transferIcon from '../../assets/svgs/icon/icon-transfer.svg';
+import phoneIcon from '../../assets/svgs/icon/icon-phone.svg';
 
 import people1Svg from '../../assets/svgs/people/people1.svg';
 import people2Svg from '../../assets/svgs/people/people2.svg';
@@ -68,7 +71,7 @@ export const HomePage = () => {
             {/* --------------------------------------------------------------------------
             | SECTION PEOPLE...
             |-------------------------------------------------------------------------- */}
-            <Section id="sect-people" legend="Section para todos">
+            <Section classe="people" id="sect-people" legend="Section para todos">
                 <div className="flex-item flex-item--4 flex flex--column flex--start-a mx mx--2">
                     <Header
                         caption="Para todos"
@@ -116,6 +119,34 @@ export const HomePage = () => {
             | SECTION THE BEST...
             |-------------------------------------------------------------------------- */}
             <Section id="sect-the-best" legend="Section o melhor de todos os bancos">
+                <div className="best px px--5 py py--7">
+                    <div className="best-item flex-item flex-item--auto m m--2">
+                        <Header
+                            caption="O melhor"
+                            title="Por que Nubank?"
+                        />
+                    </div>
+
+                    <div className="best-item flex-item flex-item--auto flex flex--center flex--column">
+                        <ReactSVG src={cashIcon} role="img" aria-label="" />
+                        <p className="mt mt--2"> Conta rende mais que a poupança </p>
+                    </div>
+
+                    <div className="best-item flex-item flex-item--auto flex flex--center flex--column">
+                        <ReactSVG src={transferIcon} role="img" aria-label="" />
+                        <p className="mt mt--2"> Transferências e TEDs ilimitados </p>
+                    </div>
+
+                    <div className="best-item flex-item flex-item--auto flex flex--center flex--column">
+                        <ReactSVG src={cardIcon} role="img" aria-label="" />
+                        <p className="mt mt--2"> Conta e cartão 100% gratuitos </p>
+                    </div>
+
+                    <div className="best-item flex-item flex-item--auto flex flex--center flex--column">
+                        <ReactSVG src={phoneIcon} role="img" aria-label="" />
+                        <p className="mt mt--2"> O melhor suporte 24h do Brasil </p>
+                    </div>
+                </div>
             </Section>
 
             {/* --------------------------------------------------------------------------

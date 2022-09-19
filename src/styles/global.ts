@@ -231,8 +231,31 @@ export default createGlobalStyle`
         }
 
         &--auto {
-            flex: 1 1 auto;
+            flex: 2 1 auto;
         }
+    }
+
+    /* --------------------------------------------------------------------------
+    | WIDTHS...
+    |-------------------------------------------------------------------------- */
+    .width-auto {
+        width: auto;
+    }
+
+    .w-100 {
+        width: 100%;
+    }
+
+    .w-75 {
+        width: 75%;
+    }
+
+    .w-50 {
+        width: 50%;
+    }
+
+    .w-25 {
+        width: 25%;
     }
 
     /* --------------------------------------------------------------------------
@@ -944,7 +967,7 @@ export default createGlobalStyle`
 
 
     /* --------------------------------------------------------------------------
-    | SPECIFIC CSS - SECTION HERO...
+    | SECTIONS - SECTION HERO...
     |-------------------------------------------------------------------------- */
     .hero {
         .hero-bg {
@@ -1064,9 +1087,9 @@ export default createGlobalStyle`
     }
 
     /* --------------------------------------------------------------------------
-    | SPECIFIC CSS - SECTION PEOPLE...
+    | SECTIONS - SECTION PEOPLE...
     |-------------------------------------------------------------------------- */
-    #sect-people {
+    .people {
         .people1, .people2, .people3, .people4, .people5, .people6 {
             opacity: 0;
             animation: people 10s ease 0s infinite;
@@ -1095,6 +1118,60 @@ export default createGlobalStyle`
         #people2 { // Removendo uma imagem no mobile...
             @include handleResponsive(s) {
                 display: none;
+            }
+        }
+    }
+
+    /* --------------------------------------------------------------------------
+    | SECTIONS - SECTION THE BEST...
+    |-------------------------------------------------------------------------- */
+    .best {
+        position: relative;
+
+        background-color: ${props => props.theme.colors.whiteNormal};
+        border-radius: ${props => props.theme.sizes.size48};
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @include handleResponsive(s) {
+            flex-direction: column;
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+
+            width: ${props => props.theme.sizes.size128};
+            height: ${props => props.theme.sizes.size32};
+            background-image: url('../src/assets/svgs/icon/icon-entail.svg');
+            background-repeat: no-repeat;
+        }
+
+        .best-item {
+            div,
+            div > div,
+            div > div > svg {
+                width: auto;
+            }
+
+            svg {
+                filter: drop-shadow(0px 16px 24px rgba(169, 80, 196, 0.25));
+                transition: .5s ease;
+
+                &:hover {
+                    transform: scale(1.05);
+                }
+            }
+
+            p {
+                font-weight: bold;
+                text-align: center;
+                color: ${props => props.theme.colors.blackLight};
             }
         }
     }
