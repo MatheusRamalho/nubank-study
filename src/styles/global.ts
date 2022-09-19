@@ -155,11 +155,10 @@ export default createGlobalStyle`
         align-items: center;
         flex-direction: row;
 
-        /* ${handleResponsive({ device: 's' })}; */
-        /* @include handleResponsive(s) {
+        @include handleResponsive(s) {
             padding: ${props => props.theme.sizes.size32} ${props => props.theme.sizes.size18};
             flex-direction: column;
-        } */
+        }
     }
 
     /* --------------------------------------------------------------------------
@@ -905,71 +904,130 @@ export default createGlobalStyle`
         }
     }
 
-     /* --------------------------------------------------------------------------
-    | SPECIFICIES...
+    @keyframes bg-home-react {
+        0% {
+            transform: translate3d(0,0,0);
+        }
+        100% {
+            transform: translate3d(0,30px,0);
+        }
+    }
+
+    /* --------------------------------------------------------------------------
+    | SPECIFIC CSS...
     |-------------------------------------------------------------------------- */
     .hero {
         height: 90vh;
 
-        /* ${handleResponsive({ device: 's' })}; */
-        /* @include handleResponsive(s) {
+        @include handleResponsive(s) {
             height: auto;
-        } */
-    }
+        }
 
-    .hero-card {
-        perspective: 500px;
-        position: relative;
-
-        .icon-card-hero,
-        .icon-contactless-hero,
-        .icon-mobile-hero {
-            z-index: 2;
+        .container {
+            height: 100%;
+        }
+        
+        .hero-bg {
+            z-index: -1;
             position: absolute;
 
-            animation: icons-hero 7s ease infinite alternate;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
 
-            svg { // Aplicar sombra direto no svg (diferente de um box-shadow)
-                filter: drop-shadow(0px 16px 24px rgba(169, 80, 196, 0.25));
+            .svg-bg-hero svg {
+                width: 100%;
+
+                @include handleResponsive(xl) {
+                    width: 100%;
+                }
+
+                .bg-home-blur1 {
+                    transform: translate3d(0, -100px, 0);
+                }
+
+                .bg-home-blur2 {
+                    transform: translate3d(0, -150px, 0);
+                }
+
+                .bg-home-react1,
+                .bg-home-react2,
+                .bg-home-react3,
+                .bg-home-react4 {
+                    animation: bg-home-react 3s ease infinite alternate;
+                }
+
+                .bg-home-react1 {
+                    animation-delay: 0s;
+                }
+
+                .bg-home-react2 {
+                    animation-delay: 0.5s;
+                }
+
+                .bg-home-react3 {
+                    animation-delay: 1s;
+                }
+
+                .bg-home-react4 {
+                    animation-delay: 1.5s;
+                }
             }
         }
 
-        .icon-card-hero {
-            top: -10px;
+        .hero-card {
+            perspective: 500px;
+            position: relative;
 
-            animation-delay: 0.5s;
-        }
+            .icon-card-hero,
+            .icon-contactless-hero,
+            .icon-mobile-hero {
+                z-index: 2;
+                position: absolute;
 
-        .icon-contactless-hero {
-            top: 350px;
+                animation: icons-hero 7s ease infinite alternate;
 
-            animation-delay: 1s;
-        }
+                svg { // Aplicar sombra direto no svg (diferente de um box-shadow)
+                    filter: drop-shadow(0px 16px 24px rgba(169, 80, 196, 0.25));
+                }
+            }
 
-        .icon-mobile-hero {
-            top: 150px;
-            left: 140px;
+            .icon-card-hero {
+                top: -10px;
 
-            animation-delay: 2.5s;
+                animation-delay: 0.5s;
+            }
 
-            /* ${handleResponsive({ device: 's' })}; */
-            /* @include handleResponsive(s) {
+            .icon-contactless-hero {
                 top: 350px;
-                left: -100px;
-            } */
-        }
 
-        .card {
-            z-index: -1;
-            width: 340px;
-            height: calc(0.64 * 340px);
-            border-radius: ${props => props.theme.sizes.size12};
-            box-shadow: ${props => props.theme.shadows.purple4};
+                animation-delay: 1s;
+            }
 
-            transform-origin: center center;
-            transform-style: preserve-3d;
-            animation: flip-card 12s linear infinite alternate,
-                change-card 12s linear 0s infinite alternate;
+            .icon-mobile-hero {
+                top: 150px;
+                left: 140px;
+
+                animation-delay: 2.5s;
+
+                @include handleResponsive(s) {
+                    top: 350px;
+                    left: -100px;
+                }
+            }
+
+            .card {
+                z-index: -1;
+                width: 340px;
+                height: calc(0.64 * 340px);
+                border-radius: ${props => props.theme.sizes.size12};
+                box-shadow: ${props => props.theme.shadows.purple4};
+
+                transform-origin: center center;
+                transform-style: preserve-3d;
+                animation: flip-card 12s linear infinite alternate,
+                    change-card 12s linear 0s infinite alternate;
+            }
         }
     }
 
@@ -977,7 +1035,6 @@ export default createGlobalStyle`
     | TESTES...
     |-------------------------------------------------------------------------- */
     .border {
-        border: ${props => props.theme.sizes.size6} dashed #E7E7E7;
+        border: ${props => props.theme.sizes.size4} dashed red;
     }
-
 `;

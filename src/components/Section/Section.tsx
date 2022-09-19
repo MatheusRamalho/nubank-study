@@ -6,9 +6,9 @@ export const Section = ({ id, legend, children, classe }: SectionProps) => {
         <SectionWrapper className={classe} id={id}>
             <h6 hidden> {legend} </h6>
 
-            <div className="container">
+            {/* <div className="container"> */}
                 {children}
-            </div>
+            {/* </div> */}
         </SectionWrapper>
     );
 }

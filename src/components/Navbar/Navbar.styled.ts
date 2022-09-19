@@ -32,6 +32,10 @@ export const NavbarDesktopWrapper = styled.nav`
     justify-content: space-between;
     align-items: center;
 
+    @include handleResponsive(s) {
+        display: none;
+    }
+
     .navbar-desktop__item {
         flex: 1 1 auto;
         display: flex;
@@ -65,8 +69,6 @@ export const NavbarDesktopWrapper = styled.nav`
         }
     }
 `;
-/* ${handleResponsive({ device: 's' })}; */
-/* @include handleResponsive(s) { display: none; } */
 
 /* --------------------------------------------------------------------------
 | NAVBAR ITEM...
@@ -116,6 +118,10 @@ export const NavbarMobileWrapper = styled.nav`
     justify-content: space-between;
     align-items: center;
 
+    @include handleResponsive(s) {
+        display: flex;
+    }
+
     .nav-hamburguer {
         z-index: 998;
         position: relative;
@@ -164,8 +170,6 @@ export const NavbarMobileWrapper = styled.nav`
         align-items: center;
     }
 `;
-/* ${handleResponsive({ device: 's' })}; */
-/* @include handleResponsive(s) { display: flex; } */
 
 /* --------------------------------------------------------------------------
 | NAVBAR MENU MOBILE...
@@ -177,9 +181,13 @@ export const NavbarMobileMenuWrapper = styled.nav`
     /* transform: translate3d(0, -73px, 0); */
     transition: 1s ease;
 
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
+
+    @include handleResponsive(s) {
+        display: flex;
+    }
 
     opacity: 0;
     pointer-events: none;
@@ -211,9 +219,6 @@ export const NavbarMobileMenuWrapper = styled.nav`
         }
     }
 `;
-
-/* ${handleResponsive({ device: 's' })}; */
-/* @include handleResponsive(s) { display: flex; } */
 
 /* --------------------------------------------------------------------------
 | NAVBAR ITEM MOBILE...
