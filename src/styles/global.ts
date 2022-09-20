@@ -180,6 +180,10 @@ export default createGlobalStyle`
             justify-content: flex-end;
         }
 
+        &--between {
+            justify-content: space-between;
+        }
+        
         &--column {
             flex-direction: column;
         }
@@ -1056,14 +1060,6 @@ export default createGlobalStyle`
     }
 
     /* --------------------------------------------------------------------------
-    | TESTES...
-    |-------------------------------------------------------------------------- */
-    .border {
-        border: ${props => props.theme.sizes.size4} dashed red;
-    }
-
-
-    /* --------------------------------------------------------------------------
     | SECTIONS - BACKGROUNDS HERO AND INVITE...
     |-------------------------------------------------------------------------- */
     .hero-bg,
@@ -1348,7 +1344,7 @@ export default createGlobalStyle`
     }
 
     /* --------------------------------------------------------------------------
-    | SECTIONS - SECTION HERO DOWN...
+    | SECTIONS - SECTION INVITE...
     |-------------------------------------------------------------------------- */
     #sect-invite.invite {
         height: 90vh;
@@ -1361,5 +1357,12 @@ export default createGlobalStyle`
             max-width: 700px;
             text-align: center;
         }
+    }
+
+    /* --------------------------------------------------------------------------
+    | TESTES...
+    |-------------------------------------------------------------------------- */
+    .border {
+        border: ${props => props.theme.sizes.size4} dashed red;
     }
 `;
